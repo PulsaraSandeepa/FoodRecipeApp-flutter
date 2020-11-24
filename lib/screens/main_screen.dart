@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodrecipeapp/widgets/card_widget.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -13,13 +13,20 @@ class _State extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('MainScreen'),
       ),
-      body:Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to first screen when tapped.
-            Navigator.pushNamed(context,"/LogIn");
-          },
-          child: Text('Go to login!'),
+      body: SafeArea(
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                CardWidget(title: "ffggfgg", subtitle: "gfgfggfg"),
+                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
+                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
+                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
+                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
+              ],
+            ),
+          ),
         ),
       ),
     );
