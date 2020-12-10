@@ -17,8 +17,10 @@ class CardWidget extends StatelessWidget {
       ),
       margin: EdgeInsets.only(top: 10.0),
       child: Container(
+
         padding: EdgeInsets.only(top: 10.0),
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: AssetImage(this.image),
             fit: BoxFit.fitWidth,
@@ -45,21 +47,10 @@ class CardWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                TextButton(
-                  child: Text(
-                    'BUY TICKETS',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/Main");
-                  },
-                ),
                 const SizedBox(width: 8),
                 TextButton(
                   child: Text(
-                    'LISTEN',
+                    'View Recipe',
                     style: TextStyle(
                       color: Colors.white,
                     ),
