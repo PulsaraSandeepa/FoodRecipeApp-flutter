@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sample_project/screens/signup_screen.dart';
 
 class LogIn extends StatelessWidget {
   @override
@@ -8,18 +7,18 @@ class LogIn extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.blueAccent, Colors.blue],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter),
-              image: DecorationImage(
-                  image: AssetImage('images/login_page.png'),
-                  fit: BoxFit.cover)),
+            gradient: LinearGradient(
+                colors: [Colors.blueAccent, Colors.blue],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter),
+            image: DecorationImage(
+                image: AssetImage('images/login_page.png'), fit: BoxFit.cover),
+          ),
           child: Center(
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 180,
+                  height: 100,
                 ),
                 Row(
                   children: <Widget>[
@@ -144,8 +143,7 @@ class LogIn extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (ctx) => SignUp()));
+                        Navigator.pushNamed(context, '/SignUp');
                       },
                       child: Text(
                         'Sign Up',
@@ -167,6 +165,7 @@ class LogIn extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   String hint;
   bool secured;
+
   CustomTextField({this.hint, this.secured});
 
   @override
