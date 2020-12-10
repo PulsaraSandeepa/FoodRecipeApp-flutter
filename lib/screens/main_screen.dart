@@ -13,18 +13,38 @@ class _State extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('MainScreen'),
       ),
-      body: SafeArea(
-        child: Scrollbar(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                CardWidget(title: "ffggfgg", subtitle: "gfgfggfg"),
-                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
-                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
-                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
-                CardWidget(title: "ffggfgg", subtitle: "ffggfgg"),
-              ],
+      body: Container(
+//        decoration: BoxDecoration(
+//          gradient: LinearGradient(
+//              colors: [Colors.blueAccent, Colors.blue],
+//              begin: Alignment.bottomCenter,
+//              end: Alignment.topCenter),
+//          image: DecorationImage(
+//              image: AssetImage('images/login_page.png'), fit: BoxFit.cover),
+//        ),
+        child: SafeArea(
+          child: Scrollbar(
+            child: SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.all(10),
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    CardWidget(
+                        title: "ffggfgg",
+                        subtitle: "gfgfggfg",
+                        image: 'images/fried-rice.jpg'),
+                    CardWidget(
+                        title: "ffggfgg",
+                        subtitle: "gfgfggfg",
+                        image: 'images/fried-rice.jpg'),
+                    CardWidget(
+                        title: "ffggfgg",
+                        subtitle: "gfgfggfg",
+                        image: 'images/fried-rice.jpg'),
+                  ],
+                ),
+              )
             ),
           ),
         ),

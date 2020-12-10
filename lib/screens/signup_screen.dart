@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:sample_project/screens/login_screen.dart';
+import 'package:foodrecipeapp/screens/main_screen.dart';
+import 'login_screen.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -84,7 +85,9 @@ class SignUp extends StatelessWidget {
                   minWidth: MediaQuery.of(context).size.width,
                   height: 55,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context,'/Main');
+                    },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25)),
