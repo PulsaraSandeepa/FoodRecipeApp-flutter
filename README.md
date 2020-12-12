@@ -7,6 +7,7 @@ Everyone can cook by watching recipies
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+Ues Firebase authentication
 
 A few resources to get you started if this is your first Flutter project:
 
