@@ -8,6 +8,8 @@ class RecipeWidget extends StatefulWidget {
 class _State extends State<RecipeWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(child: Text('Recipe')),
+    );
   }
 }

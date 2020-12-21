@@ -8,31 +8,32 @@ class MainScreen extends StatefulWidget {
 
 class _State extends State<MainScreen> {
 
-  Choice _selectedChoice = choices[0];
-
-  void _select(Choice choice) {
-    setState(() {
-      _selectedChoice = choice;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MainScreen'),
         actions: <Widget>[
-          PopupMenuButton<Choice>(
-            onSelected: _select,
-            itemBuilder: (BuildContext context) {
-              return choices.map((Choice choice) {
-                return PopupMenuItem<Choice>(
-                    value: choice,
-                    child: Text(choice.title),
-                );
-              }).toList();
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert),
+            onSelected: (newValue) { // add this property
+              if (newValue == 0) {
+                Navigator.pushNamed(context,'/AboutUs');
+              }else if(newValue == 1){
+                Navigator.pushNamed(context,'/ContactUs');
+              }
             },
-          ),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text("About Us"),
+                value: 0,
+              ),
+              PopupMenuItem(
+                child: Text("Contact Us"),
+                value: 1,
+              ),
+            ],
+          )
         ],
       ),
       body: Container(
@@ -82,15 +83,3 @@ class _State extends State<MainScreen> {
     );
   }
 }
-
-class Choice {
-  const Choice({this.title, this.icon});
-
-  final String title;
-  final IconData icon;
-}
-
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'About us', icon: Icons.directions_boat),
-  const Choice(title: 'Contact us', icon: Icons.directions_bus),
-];

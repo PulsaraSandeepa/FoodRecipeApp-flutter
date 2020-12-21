@@ -56,7 +56,7 @@ class CardWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    /* ... */
+                    Navigator.pushNamed(context,'/Recipe');
                   },
                 ),
                 const SizedBox(width: 8),
