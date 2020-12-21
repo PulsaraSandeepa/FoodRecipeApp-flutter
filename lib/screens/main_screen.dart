@@ -15,7 +15,7 @@ class _State extends State<MainScreen> {
         title: const Text('MainScreen'),
         actions: <Widget>[
           PopupMenuButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.more_vert),
             onSelected: (newValue) { // add this property
               if (newValue == 0) {
                 Navigator.pushNamed(context,'/AboutUs');
