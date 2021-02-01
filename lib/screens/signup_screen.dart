@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:foodrecipeapp/screens/main_screen.dart';
-import 'login_screen.dart';
+import 'package:foodrecipeapp/services/auth.dart';
+import 'package:foodrecipeapp/widgets/text_field.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+
+  final AuthService _auth = AuthService();
+
+  String firstName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +27,8 @@ class SignUp extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage('images/login_page.png'), fit: BoxFit.cover)),
         child: Center(
-          child: Column(
+          child: Form(
+              child: Column(
             children: <Widget>[
               SizedBox(
                 height: 50,
@@ -40,6 +51,7 @@ class SignUp extends StatelessWidget {
               CustomTextField(
                 hint: 'First Name',
                 secured: false,
+                inserted: firstName
               ),
               SizedBox(
                 height: 10,
@@ -85,8 +97,9 @@ class SignUp extends StatelessWidget {
                   minWidth: MediaQuery.of(context).size.width,
                   height: 55,
                   child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context,'/Main');
+                    onPressed: () async {
+                      Navigator.pushNamed(context, '/Main');
+                      print(firstName);
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -99,7 +112,7 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          )),
         ),
       ),
     );

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipeapp/widgets/text_field.dart';
 
-class LogIn extends StatelessWidget {
+class LogIn extends StatefulWidget {
+  @override
+  _LogInState createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,44 +168,3 @@ class LogIn extends StatelessWidget {
   }
 }
 
-class CustomTextField extends StatelessWidget {
-  String hint;
-  bool secured;
-
-  CustomTextField({this.hint, this.secured});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 25, right: 25),
-      child: TextField(
-        obscureText: secured,
-        cursorColor: Colors.white,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 1.2,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: Colors.transparent)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: Colors.transparent)),
-            disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: Colors.transparent)),
-            hintText: hint,
-            hintStyle: TextStyle(
-                fontSize: 18,
-                letterSpacing: 1.5,
-                color: Colors.white70,
-                fontWeight: FontWeight.w700),
-            filled: true,
-            fillColor: Colors.white.withOpacity(.3),
-            focusColor: Colors.transparent),
-      ),
-    );
-  }
-}
