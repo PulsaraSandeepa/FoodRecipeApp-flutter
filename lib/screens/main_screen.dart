@@ -18,9 +18,9 @@ class _State extends State<MainScreen> {
             icon: Icon(Icons.more_vert),
             onSelected: (newValue) { // add this property
               if (newValue == 0) {
-                Navigator.pushNamed(context,'/AboutUs');
+                Navigator.pushNamed(context, 'AboutUsScreen');
               }else if(newValue == 1){
-                Navigator.pushNamed(context,'/ContactUs');
+                Navigator.pushNamed(context, 'ContactUsScreen');
               }
             },
             itemBuilder: (context) => [
