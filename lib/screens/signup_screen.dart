@@ -98,7 +98,7 @@ class _SignUpState extends State<SignUp> {
                   height: 55,
                   child: RaisedButton(
                     onPressed: () async {
-                      Navigator.pushNamed(context, '/Main');
+                      Navigator.pushNamed(context, 'MainScreen');
                       print(firstName);
                     },
                     color: Colors.white,

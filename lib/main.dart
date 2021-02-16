@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodrecipeapp/route_generator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodrecipeapp/screens/aboutus_screen.dart';
 import 'package:foodrecipeapp/screens/contactus_screen.dart';
@@ -19,9 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-//      initialRoute: '/LogIn',
-//      onGenerateRoute: RouteGenerator.generateRoute,
-        home: RecipeViewScreen(), //LogIn()
+        home: LogIn(),
         routes: {
           'LoginScreen': (context) => LogIn(),
           'ContactUsScreen': (context) => ContactUs(),
