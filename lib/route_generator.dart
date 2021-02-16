@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipeapp/widgets/recipe_widget.dart';
 import './screens/aboutus_screen.dart';
 import 'screens/contactus_screen.dart';
 import './screens/login_screen.dart';
@@ -22,6 +23,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ContactUs());
       case '/AboutUs':
         return MaterialPageRoute(builder: (_) => AboutUs());
+      case '/Recipe':
+        return MaterialPageRoute(builder: (_) => RecipeWidget());
     }
   }
 }
