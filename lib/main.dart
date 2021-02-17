@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 //      initialRoute: '/LogIn',
 //      onGenerateRoute: RouteGenerator.generateRoute,
-        home: RecipeViewScreen(), //LogIn()
+        home: AboutUs(), //LogIn()
         routes: {
           'LoginScreen': (context) => LogIn(),
           'ContactUsScreen': (context) => ContactUs(),
