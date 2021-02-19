@@ -13,6 +13,7 @@ class _LogInState extends State<LogIn> {
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -184,9 +185,12 @@ class _LogInState extends State<LogIn> {
                       child: RaisedButton(
                         onPressed: () async {
                           if (_formKey.currentState.validate()) {
-                            Navigator.pushNamed(context, 'MainScreen');
-                            print("email = " + email);
-                            print("password = " + password);
+                            dynamic result = await _auth.loginWithEmailAndPassword(email, password);
+                            if(result == null){
+                              setState(() => error = 'credentials are incorrect');
+                            }else {
+                              Navigator.pushNamed(context, 'MainScreen');
+                            }
                           }
                         },
                         color: Colors.white,
@@ -199,6 +203,11 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(height:12.0),
+                  Text(
+                    error,
+                    style:TextStyle(color:Colors.red,fontSize:14.0),
                   ),
                   SizedBox(
                     height: 20,

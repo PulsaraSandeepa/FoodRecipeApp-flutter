@@ -16,6 +16,7 @@ class _SignUpState extends State<SignUp> {
   String email = '';
   String password = '';
   String confirmPassword = '';
+  String error ='';
 
   @override
   Widget build(BuildContext context) {
@@ -250,12 +251,12 @@ class _SignUpState extends State<SignUp> {
                   child: RaisedButton(
                     onPressed: () async {
                       if(_formKey.currentState.validate()){
+                      dynamic result = await _auth.registerWithEmailAndPassword(email, password, firstName,lastName);
+                      if(result == null){
+                        setState(() => error = 'please supply a valid email');
+                      }else{
                         Navigator.pushNamed(context, 'MainScreen');
-                        print("firstname = " + firstName);
-                        print("lastname = " + lastName);
-                        print("email = " + email);
-                        print("password = " + password);
-                        print("confirm = " + confirmPassword);
+                      }
                       }
                     },
                     color: Colors.white,
@@ -266,7 +267,13 @@ class _SignUpState extends State<SignUp> {
                       style: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     ),
                   ),
+
                 ),
+              ),
+              SizedBox(height:12.0),
+              Text(
+                error,
+                style:TextStyle(color:Colors.red,fontSize:14.0),
               ),
             ],
           )),
