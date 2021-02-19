@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipeapp/services/auth.dart';
 import 'package:foodrecipeapp/widgets/card_widget.dart';
 
 class MainScreen extends StatefulWidget {
@@ -7,12 +8,29 @@ class MainScreen extends StatefulWidget {
 }
 
 class _State extends State<MainScreen> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MainScreen'),
+        backgroundColor: Colors.brown,
         actions: <Widget>[
+          FlatButton.icon(
+            padding: const EdgeInsets.all(0.0),
+            onPressed: () async {
+              dynamic result = await _auth.logOut();
+              Navigator.pushNamed(context, 'LoginScreen');
+            },
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            label: Text(
+              'logout',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             onSelected: (newValue) {

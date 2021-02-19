@@ -17,9 +17,11 @@ class AuthService {
   }
 
   //register with email and password
-  Future registerWithEmailAndPassword(String email, String password, String firstName, String lastName) async {
+  Future registerWithEmailAndPassword(
+      String email, String password, String firstName, String lastName) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       CollectionReference users = firestore.collection('users');
       users.add({
         "firstName": firstName,
@@ -37,7 +39,8 @@ class AuthService {
   //login with email and password
   Future loginWithEmailAndPassword(String email, String password) async {
     try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       User user = result.user;
       return _userFromFirebaseUser(user);
     } catch (e) {
@@ -46,4 +49,13 @@ class AuthService {
     }
   }
 
+  //logout
+  Future logOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
