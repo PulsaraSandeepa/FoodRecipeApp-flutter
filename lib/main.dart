@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodrecipeapp/screens/aboutus_screen.dart';
+import 'package:foodrecipeapp/screens/account_screen.dart';
 import 'package:foodrecipeapp/screens/contactus_screen.dart';
 import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/screens/authenticate/login_screen.dart';
 import 'package:foodrecipeapp/screens/main_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
           'LoginScreen': (context) => LogIn(),
           'ContactUsScreen': (context) => ContactUs(),
           'AboutUsScreen': (context) => AboutUs(),
+          'AccountScreen':(context) => UserAccount(),
           'MainScreen': (context) => MainScreen(),
           'ProfileScreen': (context) => Profile(),
           'SignUpScreen': (context) => SignUp(),
