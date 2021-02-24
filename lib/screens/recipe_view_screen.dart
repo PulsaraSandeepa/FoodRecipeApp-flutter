@@ -11,6 +11,7 @@ class RecipeViewScreen extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown,
         title: const Text("Chicken Biriyani"), //Name of the Food or the Recipe.
       ),
       body: SingleChildScrollView(
