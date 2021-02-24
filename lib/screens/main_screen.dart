@@ -36,7 +36,7 @@ class _State extends State<MainScreen> {
             onSelected: (newValue) {
               // add this property
               if (newValue == 0) {
-                Navigator.pushNamed(context, 'AccountScreen');
+                Navigator.pushNamed(context, 'ProfileScreen');
               } else if (newValue == 1) {
                 Navigator.pushNamed(context, 'AboutUsScreen');
               } else if (newValue == 2) {
