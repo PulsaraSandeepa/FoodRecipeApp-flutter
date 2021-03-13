@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodrecipeapp/screens/recipe_view_screen.dart';
+import '../models/recipe.dart';
 class CardWidget extends StatelessWidget {
-  String title;
-  String subtitle;
-  String image;
 
-  CardWidget(
-      {@required this.title, @required this.subtitle, @required this.image});
+  final int id;
+  final String title;
+  final String subtitle;
+  final String image;
 
-  @override
+  CardWidget(this.id, this.title, this.subtitle, this.image);
+
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.only(top: 10.0),
+      margin: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
       child: Container(
 
         padding: EdgeInsets.only(top: 10.0),
@@ -32,16 +33,27 @@ class CardWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(
-                'The Enchanted Nightingale',
+                this.title,
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               subtitle: Text(
-                'Music by Julie Gable. Lyrics by Sidney Stein.',
+                this.subtitle,
                 style: TextStyle(
                   color: Colors.white,
                 ),
+              ),
+              trailing:
+              IconButton(
+                onPressed: (){
+
+                },
+                icon:Icon(
+                        Icons.favorite,
+                        size: 25,
+                        color: Colors.white,
+                      ),
               ),
             ),
             Row(
@@ -56,7 +68,10 @@ class CardWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context,'RecipeViewScreen');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder:(ctx) => RecipeViewScreen(id),
+                      ),
+                    );
                   },
                 ),
                 const SizedBox(width: 8),
@@ -67,4 +82,22 @@ class CardWidget extends StatelessWidget {
       ),
     );
   }
+  // Widget _getIcon(){
+  //   if(isSelected){
+  //    return Icon(
+  //       Icons.favorite,
+  //       size: 25,
+  //       color: Colors.white,
+  //     );
+  //   }
+  //   else{
+  //   return Icon(
+  //       Icons.favorite_border,
+  //       size: 25,
+  //       color: Colors.white,
+  //     );
+  //   }
+  // }
+
 }
+
