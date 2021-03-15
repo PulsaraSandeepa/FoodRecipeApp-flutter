@@ -1,6 +1,5 @@
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:foodrecipeapp/widgets/card_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatefulWidget {
@@ -74,26 +73,7 @@ class _ProfileViewState extends State<Profile> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
-                                CardWidget(
-                                    title: "ffggfgg",
-                                    subtitle: "gfgfggfg",
-                                    image: 'images/fried-rice.jpg'),
-                                CardWidget(
-                                    title: "ffggfgg",
-                                    subtitle: "gfgfggfg",
-                                    image: 'images/fried-rice.jpg'),
-                                CardWidget(
-                                    title: "ffggfgg",
-                                    subtitle: "gfgfggfg",
-                                    image: 'images/fried-rice.jpg'),
-                                CardWidget(
-                                    title: "ffggfgg",
-                                    subtitle: "gfgfggfg",
-                                    image: 'images/fried-rice.jpg'),
-                                CardWidget(
-                                    title: "ffggfgg",
-                                    subtitle: "gfgfggfg",
-                                    image: 'images/fried-rice.jpg'),
+                                //cards
                               ],
                             ),
                           ),
