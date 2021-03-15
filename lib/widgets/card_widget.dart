@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipeapp/providers/recipes_provider.dart';
 import 'package:foodrecipeapp/screens/recipe_view_screen.dart';
-import '../models/recipe.dart';
+import 'package:provider/provider.dart';
+import '../providers/recipe.dart';
 class CardWidget extends StatelessWidget {
 
-  final int id;
-  final String title;
-  final String subtitle;
-  final String image;
-
-  CardWidget(this.id, this.title, this.subtitle, this.image);
 
   Widget build(BuildContext context) {
+    final recipe = Provider.of<RecipeData>(context);
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
@@ -23,7 +20,7 @@ class CardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-            image: AssetImage(this.image),
+            image: AssetImage(recipe.image),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
           ),
@@ -33,13 +30,13 @@ class CardWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(
-                this.title,
+                recipe.title,
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               subtitle: Text(
-                this.subtitle,
+                recipe.subtitle,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -47,13 +44,17 @@ class CardWidget extends StatelessWidget {
               trailing:
               IconButton(
                 onPressed: (){
-
+recipe.toggleFavoriteStatus();
                 },
-                icon:Icon(
+                icon:recipe.isSelected ? Icon(
                         Icons.favorite,
-                        size: 25,
-                        color: Colors.white,
-                      ),
+                        size: 35,
+                        color: Colors.lightGreen,
+                      ): Icon(
+                  Icons.favorite_border,
+                  size: 35,
+                  color: Colors.lightGreen,
+                )
               ),
             ),
             Row(
@@ -69,7 +70,7 @@ class CardWidget extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder:(ctx) => RecipeViewScreen(id),
+                      MaterialPageRoute(builder:(ctx) => RecipeViewScreen(recipe.id),
                       ),
                     );
                   },
