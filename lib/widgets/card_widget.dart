@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodrecipeapp/providers/recipes_provider.dart';
+import 'package:foodrecipeapp/screens/recipe_view_screen.dart';
+import 'package:provider/provider.dart';
+import '../providers/recipe.dart';
 class CardWidget extends StatelessWidget {
-  String title;
-  String subtitle;
-  String image;
 
-  CardWidget(
-      {@required this.title, @required this.subtitle, @required this.image});
 
-  @override
   Widget build(BuildContext context) {
+    final recipe = Provider.of<RecipeData>(context);
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.only(top: 10.0),
+      margin: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
       child: Container(
 
         padding: EdgeInsets.only(top: 10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-            image: AssetImage(this.image),
+            image: AssetImage(recipe.image),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
           ),
@@ -32,16 +30,31 @@ class CardWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(
-                'The Enchanted Nightingale',
+                recipe.title,
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               subtitle: Text(
-                'Music by Julie Gable. Lyrics by Sidney Stein.',
+                recipe.subtitle,
                 style: TextStyle(
                   color: Colors.white,
                 ),
+              ),
+              trailing:
+              IconButton(
+                onPressed: (){
+recipe.toggleFavoriteStatus();
+                },
+                icon:recipe.isSelected ? Icon(
+                        Icons.favorite,
+                        size: 35,
+                        color: Colors.lightGreen,
+                      ): Icon(
+                  Icons.favorite_border,
+                  size: 35,
+                  color: Colors.lightGreen,
+                )
               ),
             ),
             Row(
@@ -56,7 +69,10 @@ class CardWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context,'RecipeViewScreen');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder:(ctx) => RecipeViewScreen(recipe.id),
+                      ),
+                    );
                   },
                 ),
                 const SizedBox(width: 8),
@@ -67,4 +83,22 @@ class CardWidget extends StatelessWidget {
       ),
     );
   }
+  // Widget _getIcon(){
+  //   if(isSelected){
+  //    return Icon(
+  //       Icons.favorite,
+  //       size: 25,
+  //       color: Colors.white,
+  //     );
+  //   }
+  //   else{
+  //   return Icon(
+  //       Icons.favorite_border,
+  //       size: 25,
+  //       color: Colors.white,
+  //     );
+  //   }
+  // }
+
 }
+

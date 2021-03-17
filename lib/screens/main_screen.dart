@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipeapp/services/auth.dart';
-import 'package:foodrecipeapp/widgets/card_widget.dart';
+import 'package:foodrecipeapp/widgets/recipe_widget.dart';
+
 
 class MainScreen extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class MainScreen extends StatefulWidget {
 
 class _State extends State<MainScreen> {
   final AuthService _auth = AuthService();
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _State extends State<MainScreen> {
             onSelected: (newValue) {
               // add this property
               if (newValue == 0) {
-                Navigator.pushNamed(context, 'AccountScreen');
+                Navigator.pushNamed(context, 'ProfileScreen');
               } else if (newValue == 1) {
                 Navigator.pushNamed(context, 'AboutUsScreen');
               } else if (newValue == 2) {
@@ -60,49 +62,16 @@ class _State extends State<MainScreen> {
           )
         ],
       ),
-      body: Container(
-//        decoration: BoxDecoration(
-//          gradient: LinearGradient(
-//              colors: [Colors.blueAccent, Colors.blue],
-//              begin: Alignment.bottomCenter,
-//              end: Alignment.topCenter),
-//          image: DecorationImage(
-//              image: AssetImage('images/login_page.png'), fit: BoxFit.cover),
-//        ),
-        child: SafeArea(
-          child: Scrollbar(
-            child: SingleChildScrollView(
-                child: Container(
-              margin: EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  CardWidget(
-                      title: "ffggfgg",
-                      subtitle: "gfgfggfg",
-                      image: 'images/fried-rice.jpg'),
-                  CardWidget(
-                      title: "ffggfgg",
-                      subtitle: "gfgfggfg",
-                      image: 'images/fried-rice.jpg'),
-                  CardWidget(
-                      title: "ffggfgg",
-                      subtitle: "gfgfggfg",
-                      image: 'images/fried-rice.jpg'),
-                  CardWidget(
-                      title: "ffggfgg",
-                      subtitle: "gfgfggfg",
-                      image: 'images/fried-rice.jpg'),
-                  CardWidget(
-                      title: "ffggfgg",
-                      subtitle: "gfgfggfg",
-                      image: 'images/fried-rice.jpg'),
-                ],
-              ),
-            )),
-          ),
+      body: SingleChildScrollView(
+        physics: ScrollPhysics(),
+        child: Column(
+          children: <Widget>[
+            RecipeList(),
+          ],
         ),
       ),
     );
   }
 }
+
+
