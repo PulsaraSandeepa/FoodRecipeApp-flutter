@@ -11,7 +11,8 @@ class RecipeViewIngredientsWidgets extends StatelessWidget {
       child: Text(
         ' - ' + ingredient,
         style: TextStyle(
-            fontSize: 13.0, color: Colors.black87, height: 2.0),
+            fontSize: 14.0, color: Colors.black87, height: 2.0,),
+        textAlign: TextAlign.center,
       ),
     );
   }

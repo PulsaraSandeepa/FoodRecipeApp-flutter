@@ -37,9 +37,18 @@ class RecipeViewScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('images/ChickenBiriyani.jpg')),
+                        image: AssetImage(loadedRecipe.image)),
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    border: Border.all(color: Colors.black54, width: 2),
                     color: Colors.redAccent,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
@@ -62,23 +71,14 @@ class RecipeViewScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: '1 cup boiled basmati rice',
-                ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: '1/2 teaspoon mint leaves',
-                ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: 'salt as required',
-                ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: '2 tablespoon refined oil',
-                ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: '600 gm chicken',
-                ),
-                RecipeViewIngredientsWidgets(
-                  ingredient: '1 tablespoon garam masala powder',
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: loadedRecipe.ingredientsCount(),
+                  itemBuilder: (ctx, i) => RecipeViewIngredientsWidgets(
+                    ingredient: loadedRecipe.ingredients[i],
+                  ),
                 ),
                 SizedBox(
                   height: 20.0,
@@ -97,17 +97,16 @@ class RecipeViewScreen extends StatelessWidget {
                 Divider(
                   color: Colors.black,
                 ),
-                RecipeViewStepsWidget(
-                  stepNumber: 1,
-                  topic: 'Prepare saffron and kewra water',
-                  description:
-                      'To make this delightful biryani, soak saffron in water to prepare saffron water. Next, mix kewra drops in water and mix well to make kewra water.',
-                ),
-                RecipeViewStepsWidget(
-                  stepNumber: 2,
-                  topic: 'Saute onions and tomatoes for 2-3 minutes',
-                  description:
-                      'In the meanwhile, heat refined oil in a deep bottomed pan. Once the oil is hot enough. Add cumin seeds, bay leaf, green cardamom, black cardamom, cloves in it, and saute for about a minute. Then, add chopped onion in it and saute until pink. Now, add chicken into it with slit green chillies, turmeric, salt to taste, ginger garlic paste, red chilli powder, and green chilli paste. Mix well all the spices and cook for 2-3 minutes. Then, add hung curd into it',
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: loadedRecipe.stepsCount(),
+                  itemBuilder: (ctx, i) => RecipeViewStepsWidget(
+                    stepNumber: (i + 1),
+                    topic: loadedRecipe.stepName[i],
+                    description: loadedRecipe.stepDescription[i],
+                  ),
                 ),
               ],
             ),
