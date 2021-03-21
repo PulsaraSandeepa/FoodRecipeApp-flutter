@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodrecipeapp/screens/aboutus_screen.dart';
+import 'package:foodrecipeapp/screens/addrecipe_screen.dart';
 import 'package:foodrecipeapp/screens/contactus_screen.dart';
 import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/screens/authenticate/login_screen.dart';
 import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/screens/authenticate/signup_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
               accentColor: Colors.deepOrange,
               fontFamily: 'Lato',
             ),
-            home: LogIn(),
+            home: AddRecipe(),//LogIn(),
             routes: {
               'LoginScreen': (context) => LogIn(),
               'ContactUsScreen': (context) => ContactUs(),
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
               'ProfileScreen': (context) => Profile(),
               'SignUpScreen': (context) => SignUp(),
               //'RecipeViewScreen': (context) => RecipeViewScreen(),
+              'AddRecipeScreen':(context) => AddRecipe(),
             }
             // home: Splash(),
             ),
