@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodrecipeapp/screens/aboutus_screen.dart';
+import 'package:foodrecipeapp/screens/authenticate/login_screen.dart';
+import 'package:foodrecipeapp/screens/authenticate/signup_screen.dart';
 import 'package:foodrecipeapp/screens/contactus_screen.dart';
-import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/screens/authenticate/login_screen.dart';
-import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/screens/authenticate/signup_screen.dart';
 import 'package:foodrecipeapp/screens/main_screen.dart';
 import 'package:foodrecipeapp/screens/profile_screen.dart';
 

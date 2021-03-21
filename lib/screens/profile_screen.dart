@@ -75,17 +75,27 @@ class _ProfileViewState extends State<Profile> {
                               children: <Widget>[
                                 //cards
                               ],
-                            ),
+
                           ),
+
                         ),
                       ),
                     ),
                   ),
                 ),
-              ],
+                )],
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text('Add Recipe'),
+        icon: Icon(Icons.add),
+        elevation: 10,
+
+        onPressed: (){
+
+        },
       ),
     );
   }
