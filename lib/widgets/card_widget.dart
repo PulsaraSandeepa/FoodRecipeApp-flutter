@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:foodrecipeapp/providers/recipes_provider.dart';
 import 'package:foodrecipeapp/screens/recipe_view_screen.dart';
 import 'package:provider/provider.dart';
-import '../providers/recipe.dart';
+import '../models/recipe.dart';
+
 class CardWidget extends StatelessWidget {
-
-
   Widget build(BuildContext context) {
     final recipe = Provider.of<RecipeData>(context);
     return Card(
@@ -13,14 +12,16 @@ class CardWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+      margin: EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
       child: Container(
-
         padding: EdgeInsets.only(top: 10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
+          color: Colors.black,
           image: DecorationImage(
             image: AssetImage(recipe.image),
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.5), BlendMode.dstATop),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
           ),
@@ -33,6 +34,8 @@ class CardWidget extends StatelessWidget {
                 recipe.title,
                 style: TextStyle(
                   color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
               subtitle: Text(
@@ -41,21 +44,21 @@ class CardWidget extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              trailing:
-              IconButton(
-                onPressed: (){
-recipe.toggleFavoriteStatus();
-                },
-                icon:recipe.isSelected ? Icon(
-                        Icons.favorite,
-                        size: 35,
-                        color: Colors.lightGreen,
-                      ): Icon(
-                  Icons.favorite_border,
-                  size: 35,
-                  color: Colors.lightGreen,
-                )
-              ),
+              trailing: IconButton(
+                  onPressed: () {
+                    recipe.toggleFavoriteStatus();
+                  },
+                  icon: recipe.isSelected
+                      ? Icon(
+                          Icons.favorite,
+                          size: 35,
+                          color: Colors.lightGreen,
+                        )
+                      : Icon(
+                          Icons.favorite_border,
+                          size: 35,
+                          color: Colors.lightGreen,
+                        )),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -66,11 +69,13 @@ recipe.toggleFavoriteStatus();
                     'View Recipe',
                     style: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder:(ctx) => RecipeViewScreen(recipe.id),
+                      MaterialPageRoute(
+                        builder: (ctx) => RecipeViewScreen(recipe.id),
                       ),
                     );
                   },
@@ -101,4 +106,3 @@ recipe.toggleFavoriteStatus();
   // }
 
 }
-

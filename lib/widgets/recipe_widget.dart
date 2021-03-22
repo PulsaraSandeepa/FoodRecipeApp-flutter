@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/Programs/AndroidStudioProjects/food_recipe_app/lib/providers/recipe.dart';
 import 'package:foodrecipeapp/providers/recipes_provider.dart';
 import 'package:provider/provider.dart';
 

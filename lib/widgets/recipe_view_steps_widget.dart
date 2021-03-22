@@ -15,7 +15,7 @@ class RecipeViewStepsWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Step : ' + stepNumber.toString() + ' ' + topic,
+            'Step : ' + stepNumber.toString() + '  ->  ' + topic,
             style: TextStyle(
                 fontSize: 14.0,
                 color: Colors.black87,
