@@ -1,6 +1,7 @@
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/painting.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -14,34 +15,39 @@ class _ProfileViewState extends State<Profile> {
       body: Column(
         children: <Widget>[
           Container(
-            height:670,
+            height: 100,
             child: Stack(
               children: <Widget>[
-                  Container(
-                    height: 150,
-                    color: Colors.brown,
-                  ),
+                Container(
+                  height: 100,
+                  color: Colors.brown,
+                ),
                 Align(
                   child: Padding(
-                    padding: const EdgeInsets.only( bottom: 350,),
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                    ),
                     child: Container(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          CircularProfileAvatar(
-                              '',
-                              child: FlutterLogo(),
-                              borderColor: Colors.white,
-                              borderWidth: 4,
-                              elevation: 2,
-                              radius: 50,
-                            ),
                           SizedBox(
                             height: 4,
                           ),
                           Text(
                             "Pulsara Sandeepa",
-                            style: GoogleFonts.lato(fontSize: 25),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20,
+                              shadows: <Shadow>[
+                                Shadow(
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 6.0,
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -54,7 +60,10 @@ class _ProfileViewState extends State<Profile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         IconButton(
-                            icon: Icon(Icons.arrow_back , color: Colors.white,),
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(context, 'MainScreen');
                             }),
@@ -63,7 +72,9 @@ class _ProfileViewState extends State<Profile> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only( top: 250,),
+                  padding: const EdgeInsets.only(
+                    top: 250,
+                  ),
                   child: Container(
                     child: SafeArea(
                       child: Scrollbar(
@@ -75,15 +86,64 @@ class _ProfileViewState extends State<Profile> {
                               children: <Widget>[
                                 //cards
                               ],
-
+                            ),
                           ),
-
                         ),
                       ),
                     ),
                   ),
                 ),
-                )],
+              ],
+            ),
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "Your Recipes",
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Your Recipes",
+                    ),
+                    Text(
+                      "Your Recipes",
+                    ),
+                    Text(
+                      "Your Recipes",
+                    ),
+                    Text(
+                      "Your Recipes",
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "Your Favourites",
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Your Favourites",
+                    ),
+                    Text(
+                      "Your Favourites",
+                    ),
+                    Text(
+                      "Your Favourites",
+                    ),
+                    Text(
+                      "Your Favourites",
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
@@ -92,8 +152,7 @@ class _ProfileViewState extends State<Profile> {
         label: Text('Add Recipe'),
         icon: Icon(Icons.add),
         elevation: 10,
-
-        onPressed: () async{
+        onPressed: () async {
           Navigator.pushNamed(context, 'AddRecipeScreen');
         },
       ),
