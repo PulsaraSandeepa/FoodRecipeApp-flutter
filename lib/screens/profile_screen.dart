@@ -93,8 +93,8 @@ class _ProfileViewState extends State<Profile> {
         icon: Icon(Icons.add),
         elevation: 10,
 
-        onPressed: (){
-
+        onPressed: () async{
+          Navigator.pushNamed(context, 'AddRecipeScreen');
         },
       ),
     );

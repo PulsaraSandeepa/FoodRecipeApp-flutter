@@ -40,7 +40,7 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-test/pubspec.lock
-android/gradle/build.gradle
-android/app/build.gradle
-
+.gradle
+**/build/
+!src/**/build/
+pubspec.lock

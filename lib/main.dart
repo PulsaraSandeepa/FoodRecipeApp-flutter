@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               accentColor: Colors.deepOrange,
               fontFamily: 'Lato',
             ),
-            home: AddRecipe(),//LogIn(),
+            home: LogIn(),
             routes: {
               'LoginScreen': (context) => LogIn(),
               'ContactUsScreen': (context) => ContactUs(),
