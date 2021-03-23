@@ -1,5 +1,6 @@
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:foodrecipeapp/widgets/recipe_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/painting.dart';
 
@@ -12,6 +13,7 @@ class _ProfileViewState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: <Widget>[
           Container(
@@ -99,24 +101,27 @@ class _ProfileViewState extends State<Profile> {
           Container(
             child: Column(
               children: <Widget>[
-                Text(
-                  "Your Recipes",
+                Padding(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: Text("Your Recipes",
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      )),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "Your Recipes",
-                    ),
-                    Text(
-                      "Your Recipes",
-                    ),
-                    Text(
-                      "Your Recipes",
-                    ),
-                    Text(
-                      "Your Recipes",
-                    ),
-                  ],
+                Container(
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  height: MediaQuery.of(context).size.height * 0.262,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: RecipeList(),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -124,24 +129,27 @@ class _ProfileViewState extends State<Profile> {
           Container(
             child: Column(
               children: <Widget>[
-                Text(
-                  "Your Favourites",
+                Padding(
+                  padding: EdgeInsets.only(top: 5.0),
+                  child: Text("Your Favourites",
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      )),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      "Your Favourites",
-                    ),
-                    Text(
-                      "Your Favourites",
-                    ),
-                    Text(
-                      "Your Favourites",
-                    ),
-                    Text(
-                      "Your Favourites",
-                    ),
-                  ],
+                Container(
+                  padding: EdgeInsets.only(bottom: 6.0),
+                  height: MediaQuery.of(context).size.height*0.45,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: RecipeList(),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
