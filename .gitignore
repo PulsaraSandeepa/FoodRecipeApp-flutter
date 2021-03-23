@@ -44,3 +44,6 @@ app.*.map.json
 **/build/
 !src/**/build/
 pubspec.lock
+android/app/build.gradle
+android/build.gradle
+android/app/google-services.json
