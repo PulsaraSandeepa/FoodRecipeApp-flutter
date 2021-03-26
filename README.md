@@ -2,7 +2,7 @@
 
 Food Recipe Application
 
-Everyone can cook by watching recipies
+Everyone can cook by watching recipies and an be added the user's favorite recipes into their profiles.
 
 ## Getting Started
 
